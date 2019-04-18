@@ -1,44 +1,15 @@
-package org.fasttrackit.runningstatsapi.domain;
+package org.fasttrackit.runningstatsapi.transfer;
 
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Date;
 
-@Entity
-public class RunningStats {
+public class UpdateRunningStatsRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-   @NotNull
-   @Size(min = 1, max = 80)
     private String name;
-
-   private LocalDate date;
-   private double distance_km;
-   private double time_min;
-   private String terrain;
-   private double pace;
-
-   public double pace_minkm(double distance, double time){
-       double pace = distance/time;
-       return pace;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
+    private LocalDate date;
+    private double distance_km;
+    private double time_min;
+    private String terrain;
+    private double pace = distance_km/time_min;
 
     public String getName() {
         return name;
@@ -86,5 +57,17 @@ public class RunningStats {
 
     public void setPace(double pace) {
         this.pace = pace;
+    }
+
+    @Override
+    public String toString() {
+        return "UpdateRunningStatsRequest{" +
+                "name='" + name + '\'' +
+                ", date=" + date +
+                ", distance_km=" + distance_km +
+                ", time_min=" + time_min +
+                ", terrain='" + terrain + '\'' +
+                ", pace=" + pace +
+                '}';
     }
 }

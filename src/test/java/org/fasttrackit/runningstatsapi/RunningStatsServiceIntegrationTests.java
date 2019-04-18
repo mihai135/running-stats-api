@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.greaterThan;
@@ -35,10 +38,12 @@ public class RunningStatsServiceIntegrationTests {
 
     private RunningStats createRunningStats() {
         CreateRunningStatsRequest request = new CreateRunningStatsRequest();
-        request.setName("Mihai");
-        request.setDistance_km(20);
-        request.setTime_min(120);
-        request.setTerrain("Forrest");
+        request.setName("Cosmin");
+        request.setDate(LocalDate.now(ZoneId.of("Europe/Bucharest")));
+        request.setDistance_km(5);
+        request.setTime_min(30);
+        request.setPace(6);
+        request.setTerrain("Road");
 
         return runningStatsService.createRunningStats(request);
     }

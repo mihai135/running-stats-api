@@ -1,14 +1,16 @@
 package org.fasttrackit.runningstatsapi.transfer;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class CreateRunningStatsRequest {
 
     private String name;
-    private Date date;
+    private LocalDate date;
     private double distance_km;
     private double time_min;
     private String terrain;
+    private double pace;
 
     public String getName() {
         return name;
@@ -18,11 +20,11 @@ public class CreateRunningStatsRequest {
         this.name = name;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -50,6 +52,14 @@ public class CreateRunningStatsRequest {
         this.terrain = terrain;
     }
 
+    public double getPace() {
+        return pace;
+    }
+
+    public void setPace(double pace) {
+        this.pace = pace;
+    }
+
     @Override
     public String toString() {
         return "CreateRunningStatsRequest{" +
@@ -58,6 +68,7 @@ public class CreateRunningStatsRequest {
                 ", distance_km=" + distance_km +
                 ", time_min=" + time_min +
                 ", terrain='" + terrain + '\'' +
+                ", pace=" + pace +
                 '}';
     }
 }
