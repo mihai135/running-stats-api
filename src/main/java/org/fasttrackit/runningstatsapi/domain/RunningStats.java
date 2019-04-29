@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
-import java.util.Date;
 
 @Entity
 public class RunningStats {
@@ -27,9 +26,13 @@ public class RunningStats {
    private String terrain;
    private double pace;
 
-   public double pace_minkm(double distance, double time){
-       double pace = distance/time;
-       return pace;
+    public RunningStats() {
+    }
+
+    public RunningStats(double time_min, double distance_km) {
+        this.time_min = time_min;
+        this.distance_km = distance_km;
+        pace = time_min/distance_km;
     }
 
     public long getId() {

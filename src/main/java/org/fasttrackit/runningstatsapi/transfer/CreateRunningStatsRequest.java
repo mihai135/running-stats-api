@@ -1,7 +1,6 @@
 package org.fasttrackit.runningstatsapi.transfer;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public class CreateRunningStatsRequest {
 
@@ -11,6 +10,15 @@ public class CreateRunningStatsRequest {
     private double time_min;
     private String terrain;
     private double pace;
+
+    public CreateRunningStatsRequest() {
+    }
+
+    public CreateRunningStatsRequest(double time_min, double distance_km) {
+        this.time_min = time_min;
+        this.distance_km = distance_km;
+        pace = time_min/distance_km;
+    }
 
     public String getName() {
         return name;

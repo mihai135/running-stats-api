@@ -9,7 +9,16 @@ public class UpdateRunningStatsRequest {
     private double distance_km;
     private double time_min;
     private String terrain;
-    private double pace = distance_km/time_min;
+    private double pace;
+
+    public UpdateRunningStatsRequest() {
+    }
+
+    public UpdateRunningStatsRequest(double time_min, double distance_km) {
+        this.time_min = time_min;
+        this.distance_km = distance_km;
+        pace = time_min/distance_km;
+    }
 
     public String getName() {
         return name;
