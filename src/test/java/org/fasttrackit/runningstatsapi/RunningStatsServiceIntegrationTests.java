@@ -75,7 +75,7 @@ public class RunningStatsServiceIntegrationTests {
         RunningStats updatedRunningStats = runningStatsService.updateRunningStats(createdRunningstats.getId(), request);
 
         assertThat(updatedRunningStats.getName(), is (request.getName()));
-        assertThat(updatedRunningStats.getName(), not (is (request.getName())));
+        //assertThat(updatedRunningStats.getName(), not (is (request.getName())));
         assertThat(updatedRunningStats.getDate(), is (request.getDate()));
         assertThat(updatedRunningStats.getDistance_km(), is (request.getDistance_km()));
         assertThat(updatedRunningStats.getTime_min(), is (request.getTime_min()));
